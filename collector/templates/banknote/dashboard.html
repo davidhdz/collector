@@ -1,0 +1,137 @@
+{% extends 'banknote/index.html' %}
+{% load static i18n %}
+
+{% block content %}
+
+{% block breadcrumbs %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">{% translate 'Home' %}</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'dashboard' request.user.username %}">{% translate 'Dashboard' %}</a></li>
+    </ol>
+</nav>
+{% endblock breadcrumbs %}
+
+
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h1 mb-0 ">Banknotes Collection</h1>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <p>Welcome {{ user.get_username|title }}, these are your numbers so far: </p>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <!-- albums -->
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-uppercase mb-1">Number of Albums</div>
+                        <div class="h5 mb-0 font-weight-bold ">{{ num_albums|add:"1" }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-atlas fa-2x text-collector-secundary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- countries -->
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-uppercase mb-1">Number of countries</div>
+                        <div class="h5 mb-0 font-weight-bold ">{{ num_countries }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-globe-americas fa-2x text-collector-secundary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- banknotes -->
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-uppercase mb-1">Number of banknotes</div>
+                        <div class="h5 mb-0 font-weight-bold ">{{ num_banknotes }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-money-bill-wave fa-2x text-collector-secundary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <!-- Illustrations -->
+    <div class="col-xl-8 mb-4">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Statistics</h6>
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    {% include "banknote/pie_chart.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent activity -->
+    <div class="col-xl-4 mb-4">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Last actions</h6>
+            </div>
+            <div class="card-body">
+                {% load log %}
+                {% get_admin_log 7 as admin_log %}
+                {% if not admin_log %}
+                <p>{% trans 'None available' %}</p>
+                {% else %}
+                <ul class="actionlist">
+                    {% for entry in admin_log %}
+                    <li class="{% if entry.is_addition %}addlink{% endif %}{% if entry.is_change %}changelink{% endif %}{% if entry.is_deletion %}deletelink{% endif %}">
+                        {% if entry.is_deletion or not entry.get_admin_url %}
+                        {{ entry.object_repr }}
+                        {% else %}
+                        <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                        {% endif %}
+                        <br />
+                        {% if entry.content_type %}
+                        <span class="mini quiet">{% filter capfirst %}{{ entry.content_type }}{% endfilter %}, by {{
+                            entry.user }}</span>
+                        {% else %}
+                        <span class="mini quiet">{% trans 'Unknown content' %}</span>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'banknote/index.html' %}
+
+{% block title %}Page not found{% endblock %}
+
+{% block content %}
+
+<div class="text-center">
+    <div class="error mx-auto" data-text="404">404</div>
+    <p class="lead text-gray-800 mb-5">{% if exception %}{{ exception }}{% else %}Page Not Found{% endif %}</p>
+
+    <img class="img-fluid" alt="404 Page not found" src="{% static 'images/no_image_banknote.png' %}">
+
+    <p class="text-gray-500 mb-0">This is not the page you were looking for.</p>
+    <a href="{% url 'dashboard' username=request.user.username %}">&larr; Back to Dashboard</a>
+</div>
+
+{% endblock content %}

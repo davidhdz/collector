@@ -1,0 +1,190 @@
+{% extends 'banknote/index.html' %}
+{% load static i18n %}
+
+{% block content %}
+{% block breadcrumbs %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">{% translate 'Home' %}</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'dashboard' request.user.username %}">{% translate 'Dashboard' %}</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'album_all_view' username=request.user.username %}">{% translate 'Index' %}</a></li>
+    </ol>
+</nav>
+{% endblock breadcrumbs %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h1 class="m-0 font-weight-bold"><a href="{% url 'album_country_view' username=request.user.username url_country=object.country %}">{{ object.country }}</a></h1>
+                <h2>{{ object.denomination }} {{ object.currency }} {{ object.year }} (P-{{ object.pick_number }})</h2>
+            </div>
+            <div class="card-body">
+
+                <div class="d-flex d-md-flex justify-content-md-end">
+                    <a href="{% url 'banknote_edit' username=request.user.username pk=object.pk slug=object.slug|slugify %}" type="button" class="btn btn-outline-secondary btn-sm mb-4">{% translate 'Edit' %}</a>
+                </div>
+
+                <div class="card shadow mb-4">
+                    <div class="card-header">
+                        <strong>{% translate 'Details' %}</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-sm-flex justify-content-between">
+                            <p><strong>{% translate 'Issued date' %}:</strong> {{ object.issued_date }}</p>
+                            <p class="text-collector-secundary">
+                                {% if object.commemorative %}<i class="fas fa-award pl-1 pr-1" title={% translate 'Commemorative' %}></i>{% endif%}
+                                {% if object.polymer %}<i class="fas fa-recycle pl-1 pr-1" title={% translate 'Polymer' %}></i>{% endif%}
+                                {% if object.overprint %}<i class="fas fa-clone pl-1 pr-1" title={% translate 'Overprint' %}></i>{% endif%}
+                                {% if object.specimen %}<i class="fas fa-stamp pl-1 pr-1" title={% translate 'Specimen' %}></i>{% endif%}
+                                {% if object.notgeld %}<i class="fas fa-globe-europe pl-1 pr-1" title='Notgeld'></i>{% endif%}
+                            </p>
+                        </div>
+
+                        {% if object.serial_number %}
+                        <p><strong>{% translate 'Serial number' %}:</strong> {{ object.serial_number }}</p>
+                        {% endif %}
+
+                        <p><strong>{% translate 'Description front' %}:</strong> {{ object.description_front|default_if_none:"No description" }}</p>
+                        <p><strong>{% translate 'Description back' %}:</strong> {{ object.description_back|default_if_none:"No description" }}</p>
+
+                        {% if object.size %}
+                        <p><strong>{% translate 'Size' %}:</strong> {{ object.size }}</p>
+                        {% endif %}
+
+                        {% if object.observations %}
+                        <p><strong>{% translate 'Observations' %}:</strong> {{ object.observations }}</p>
+                        {% endif %}
+
+                        {% if object.grading %}
+                        <p><strong>{% translate 'Grading' %}:</strong> {{ object.get_grading_display }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% if object.image_front or object.image_back %}
+                <div class="card shadow mb-4">
+                    <div class="card-header">
+                        <strong>{% translate 'Images' %}</strong>
+                    </div>
+                    <div class="card-body">
+                        {% if object.image_front %}
+                        <strong>{% translate 'Front' %}:</strong>
+                        <figure>
+                            <img class="img-fluid mx-auto d-block" alt="Front {{ object.country }} {{ object.denomination }} {{ object.currency }} {{ object.year }}" src="{{ MEDIA_URL }}{{ object.image_front }}" width="720px" data-toggle="modal" data-target="#banknoteFront" style="cursor: zoom-in;">
+                        </figure>
+                        <div id="banknoteFront" class="modal fade" role="dialog">
+                            <div class="modal-dialog modal-xl">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title mx-auto d-block">{{ object.country }} {{ object.denomination }} {{ object.currency }} {{ object.year }} (P-{{ object.pick_number }})</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div style="text-align:center">
+                                            <h5>{% translate 'Front' %}</h5>
+                                        </div>
+                                        <div class="d-flex mb-4 justify-content-between align-content-center  align-items-center">
+                                            <div><i class="text-white fas fa-4x fa-chevron-left"></i></div>
+                                            <div>
+                                                <img class="img-fluid mx-auto d-block" src="{{ MEDIA_URL }}{{ object.image_front }}" alt="Front" data-dismiss="modal" style="cursor: zoom-out;">
+                                            </div>
+                                            {% if object.image_back %}
+                                            <div class="modal-chevron">
+                                                <a data-dismiss="modal" data-toggle="modal" data-target="#banknoteBack"><i class="fas fa-4x fa-chevron-right"></i></a></li>
+                                            </div>
+                                            {% else %}
+                                            <div></div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% if object.image_back %}
+                        <strong>{% translate 'Back' %}:</strong>
+                        <figure>
+                            <img class="img-fluid mx-auto d-block" alt="Front {{ object.country }} {{ object.denomination }} {{ object.currency }} {{ object.year }}" src="{{ MEDIA_URL }}{{ object.image_back }}" width="720px" data-toggle="modal" data-target="#banknoteBack" style="cursor: zoom-in;">
+                        </figure>
+
+                        <div id="banknoteBack" class="modal fade" role="dialog">
+                            <div class="modal-dialog modal-xl">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title mx-auto d-block">{{ object.country }} {{ object.denomination }} {{ object.currency }} {{ object.year }} (P-{{ object.pick_number }})</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div style="text-align:center">
+                                            <h5>{% translate 'Back' %}</h5>
+                                        </div>
+                                        <div class="d-flex mb-4 justify-content-between align-content-center  align-items-center">
+                                            {% if object.image_front %}
+                                            <div class="modal-chevron"><a data-dismiss="modal" data-toggle="modal" data-target="#banknoteFront"><i class="fas fa-4x fa-chevron-left"></i></a></div>
+                                            {% else %}
+                                            <div></div>
+                                            {% endif %}
+                                            <div>
+                                                <img class="img-fluid mx-auto d-block" src="{{ MEDIA_URL }}{{ object.image_back }}" alt="Back" data-dismiss="modal" style="cursor: zoom-out;">
+                                            </div>
+                                            <div>
+                                                <i class="text-white fas fa-4x fa-chevron-right"></i></li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if object.album.all|length > 0 %}
+                <div class="card shadow mb-4">
+                    <div class="card-header">
+                        <strong>{% translate 'Albums' %}</strong>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>{% translate 'Albums' %}:</strong>
+                            {% for item in object.album.all %}
+                            {% if forloop.last %}
+                            <a href="{% url 'album_detail_view' username=request.user.username pk=item.id slug=item.name|slugify %}">{{ item.name }}</a>.
+                            {% else %}
+                            <a href="{% url 'album_detail_view' username=request.user.username pk=item.id slug=item.name|slugify %}">{{ item.name }}</a>,
+                            {% endif %}
+                            {% endfor %}
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="Pager">
+                    <ul class="pagination d-flex justify-content-between">
+                        {% if object.get_previous_by_created_at %}
+                        <li class="page-item"><a class="page-link" href="{% url 'banknote_detail_view' request.user.username object.get_previous_by_created_at.id object.get_previous_by_created_at.slug|slugify %}">{% translate 'Previous' %}</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled"><span class="page-link">{% translate 'Previous' %}</span></li>
+                        {% endif %}
+                        {% if object.get_next_by_created_at %}
+                        <li class="page-item"><a class="page-link" href="{% url 'banknote_detail_view' request.user.username  object.get_next_by_created_at.id object.get_next_by_created_at.slug|slugify %}">{% translate 'Next' %}</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled"><span class="page-link">{% translate 'Next' %}</span></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

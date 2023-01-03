@@ -1,0 +1,64 @@
+{% extends 'banknote/index.html' %}
+{% load crispy_forms_tags %}
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block content %}
+{% if album %}
+{% block breadcrumbs %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">{% translate 'Home' %}</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'dashboard' request.user.username %}">{% translate 'Dashboard' %}</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'album_all_view' username=request.user.username %}">{% translate 'Index' %}</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'album_detail_view' username=request.user.username pk=album.pk slug=album.name|slugify %}">{{ album.name }}</a></li>
+    </ol>
+</nav>
+{% endblock breadcrumbs %}
+{% endif %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+
+                {% if album %}
+                <h1 class="m-0 font-weight-bold">{% translate 'Album' %}</h1>
+                <h2 class="">{{album.name}}</h2>
+                {% else %}
+                <h1 class="m-0 font-weight-bold">{% translate 'New album' %}</h1>
+                {% endif %}
+            </div>
+            <div class="card-body">
+
+                <div class="d-flex d-md-flex justify-content-md-end">
+                    <a href="{{request.META.HTTP_REFERER}}" class="btn btn-outline-secondary btn-sm mb-4">{% translate 'Cancel' %}</a>
+                </div>
+
+                <form role="form" method="post">
+                    {% csrf_token %}
+
+                    {% if form %}
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <strong>{% translate 'Details' %}</strong>
+                        </div>
+                        <div class="card-body">
+                            {{ form.name|as_crispy_field }}
+                            {{ form.description|as_crispy_field }}
+                        </div>
+                    </div>
+
+                    {%if form.non_field_errors%}
+                    <div class="col-md-6 p-2 text-danger">{{form.non_field_errors}}</div>
+                    {% endif %}
+                    <div class="d-flex d-md-flex justify-content-md-end">
+                        <a href="{{request.META.HTTP_REFERER}}" class="btn btn-outline-secondary mr-2">{% translate 'Cancel' %}</a>
+                        <input type="submit" value={% translate 'Save' %}>
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

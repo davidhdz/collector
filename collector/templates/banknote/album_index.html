@@ -1,0 +1,77 @@
+{% extends 'banknote/index.html' %}
+{% load static i18n %}
+
+{% block content %}
+{% block breadcrumbs %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">{% translate 'Home' %}</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'dashboard' request.user.username %}">{% translate 'Dashboard' %}</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'album_all_view' username=request.user.username %}">{% translate 'Index' %}</a></li>
+    </ol>
+</nav>
+{% endblock breadcrumbs %}
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="mb-0">{% translate 'Album' %}</h1><br>
+        <h2 class="mb-0">{% blocktranslate with user_username=user.get_username|lower %} {{ user_username }}'s albums {% endblocktranslate %}</h2>
+        <hr>
+    </div>
+</div>
+
+<!-- Page Body -->
+<div class="row">
+    <div class="col-md-4" align="center">
+        <a href="{% url 'album_all_detail_view' username=request.user.username %}">
+            <div class="container-cover" style="background-color: #ff9955;">
+                <img style="height: 100px;" class="img-fluid img-thumbnail" alt="All banknotes" src="{% static 'images/album_cover.png' %}">
+            </div>
+        </a>
+        <a href="{% url 'album_all_detail_view' username=request.user.username %}"><strong>{% translate 'All banknotes' %}</strong>
+        </a><br>
+
+        <br>
+    </div><br>
+    {% for item in obj_album %}
+    <div class="col-md-4" align="center">
+        <a href="{% url 'album_detail_view' username=request.user.username pk=item.id slug=item.name|slugify %}">
+            <div class="container-cover" style="{% cycle 'background-color: #557593' 'background-color: #9c9c9d' 'background-color: #2b5278;' 'background-color: #ff9955;' %} ">
+                <img style="height: 100px;" class="img-fluid img-thumbnail" alt="All banknotes" src="{% static 'images/album_cover.png' %}">
+            </div>
+        </a>
+        <a href="{% url 'album_detail_view' username=request.user.username pk=item.id slug=item.name|slugify %}"><strong>{{item.name}}</strong></a><br>
+        {{item.description}}<br><br>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Pagination -->
+{% if obj_album.has_other_pages %}
+<div class="row">
+    <div class="col-12 mt-4">
+        <ul class="pagination d-flex justify-content-center">
+            {% if obj_album.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ obj_album.previous_page_number }}">&laquo;</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link"><span>&laquo;</span></a></li>
+            {% endif %}
+            {% for i in obj_album.paginator.page_range %}
+            {% if obj_album.number == i %}
+            <li class="page-item active"><a class="page-link"><span>{{ i }} <span class="sr-only">(current)</span></span></a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if obj_album.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ obj_album.next_page_number }}">&raquo;</a></li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link"><span>&raquo;</span></a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

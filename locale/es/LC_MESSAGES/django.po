@@ -1,0 +1,824 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-27 21:30-0400\n"
+"PO-Revision-Date: 2022-12-27 21:31-0400\n"
+"Last-Translator: David Hernandez <david.vzla@gmail.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: banknotes/admin.py:13 banknotes/admin.py:14
+msgid "Collector Admin Panel"
+msgstr "Panel de Administración de Collector"
+
+#: banknotes/admin.py:15
+msgid "Welcome to Collector Admin Panel"
+msgstr "Bienvenido al Panel de Administración de Collector"
+
+#: banknotes/admin.py:96 banknotes/admin.py:100
+msgid "Current image"
+msgstr "Imagen actual"
+
+#: banknotes/admin.py:104
+msgid "The banknotes have been marked as commemorative"
+msgstr "Los billetes han sido marcados como conmemorativo"
+
+#: banknotes/admin.py:105
+msgid "Mark selected banknotes as commemorative"
+msgstr "Marcar los billetes seleccionados como conmemorativo"
+
+#: banknotes/admin.py:109
+msgid "The banknotes have been marked as polymer"
+msgstr "Los billetes han sido marcados como polímero"
+
+#: banknotes/admin.py:110
+msgid "Mark selected banknotes as polymer"
+msgstr "Marcar los billetes seleccionados como polímero"
+
+#: banknotes/admin.py:114
+msgid "The banknotes have been marked as overprint"
+msgstr "Los billetes han sido marcados como sobreimpreso"
+
+#: banknotes/admin.py:115
+msgid "Mark selected banknotes as overprint"
+msgstr "Marcar los billetes seleccionados como sobreimpreso"
+
+#: banknotes/admin.py:119
+msgid "The banknotes have been marked as specimen"
+msgstr "Los billetes han sido marcados como espécimen"
+
+#: banknotes/admin.py:120
+msgid "Mark selected banknotes as specimen"
+msgstr "Marcar los billetes seleccionados como espécimen"
+
+#: banknotes/admin.py:125
+msgid "Mark selected banknotes as notgeld"
+msgstr "Marcar los billetes seleccionados como notgeld"
+
+#: banknotes/admin.py:148
+msgid "Add banknotes to album..."
+msgstr "Añadir los billetes al album..."
+
+#: banknotes/admin.py:159
+#, python-brace-format
+msgid "{0} banknotes were removed from {1}"
+msgstr "{0} billetes fueron removidos de {1}"
+
+#: banknotes/admin.py:171
+msgid "Remove banknotes from album..."
+msgstr "Eliminar billetes del álbum..."
+
+#: banknotes/forms.py:12 banknotes/models.py:12
+msgid "Uncirculated"
+msgstr "Sin circular"
+
+#: banknotes/forms.py:13 banknotes/models.py:13
+msgid "About Uncirculated"
+msgstr "Casi sin circular"
+
+#: banknotes/forms.py:14 banknotes/models.py:14
+msgid "Extremely Fine"
+msgstr "Extremadamente fino"
+
+#: banknotes/forms.py:15 banknotes/models.py:15
+msgid "Very Fine"
+msgstr "Muy fino"
+
+#: banknotes/forms.py:16 banknotes/models.py:16
+msgid "Fine"
+msgstr "Fino"
+
+#: banknotes/forms.py:17 banknotes/models.py:17
+msgid "Very Good"
+msgstr "Muy bueno"
+
+#: banknotes/forms.py:18 banknotes/models.py:18
+msgid "Good"
+msgstr "Bueno"
+
+#: banknotes/forms.py:19 banknotes/models.py:19
+msgid "Poor"
+msgstr "Pobre"
+
+#: banknotes/models.py:27
+msgid "Album name"
+msgstr "Nombre del álbum"
+
+#: banknotes/models.py:27
+msgid "name"
+msgstr "nombre"
+
+#: banknotes/models.py:28
+msgid "Album description"
+msgstr "Descripción del álbum"
+
+#: banknotes/models.py:28
+msgid "description"
+msgstr "descripción"
+
+#: banknotes/models.py:29
+msgid "Album owner"
+msgstr "Propietario del álbum"
+
+#: banknotes/models.py:29 banknotes/models.py:46
+msgid "owner"
+msgstr "propietario"
+
+#: banknotes/models.py:38 banknotes/models.py:79
+msgid "album"
+msgstr "álbum"
+
+#: banknotes/models.py:46
+msgid "Banknote owner"
+msgstr "Propietario del billete"
+
+#: banknotes/models.py:47
+msgid "country"
+msgstr "país"
+
+#: banknotes/models.py:47
+msgid "Banknote country (e.g. Venezuela)"
+msgstr "País del billete (p. ej., Venezuela)"
+
+#: banknotes/models.py:48
+msgid "denomination"
+msgstr "denominación"
+
+#: banknotes/models.py:48
+msgid "Banknote denomination (e.g. 100)"
+msgstr "Denominación del billete (p. ej., 100)"
+
+#: banknotes/models.py:49
+msgid "currency"
+msgstr "moneda"
+
+#: banknotes/models.py:49
+msgid "Banknote currency (e.g. Bolívares)"
+msgstr "Moneda del billete (p. ej., Bolívares)"
+
+#: banknotes/models.py:50
+msgid "pick number"
+msgstr "código Pick"
+
+#: banknotes/models.py:51
+msgid "Pick number code (e.g. 59a)"
+msgstr "Código Pick (p. ej., 59a)"
+
+#: banknotes/models.py:52
+msgid "issued date"
+msgstr "fecha de emisión"
+
+#: banknotes/models.py:53
+msgid ""
+"Issued date of the banknote, ND stands for No Date in the banknote (e.g. "
+"ND(1980))"
+msgstr ""
+"Fecha de emisión del billete, ND significa Sin fecha en el billete (p. ej., "
+"ND(1980))"
+
+#: banknotes/models.py:54
+msgid "year"
+msgstr "año"
+
+#: banknotes/models.py:54
+msgid "Enter 4 digits year (e.g. 1980)"
+msgstr "Introduzca un año con el formato de 4 dígitos (p. ej., 1980)"
+
+#: banknotes/models.py:56
+msgid "Banknote front description (e.g. Mausoleo de Bolívar. Simón Bolívar.)"
+msgstr ""
+"Descripción del anverso del billete (p. ej., Mausoleo de Bolívar. Simón "
+"Bolívar.)"
+
+#: banknotes/models.py:56
+msgid "front description"
+msgstr "descripción del anverso"
+
+#: banknotes/models.py:58
+msgid "Banknote back description (e.g. Expedición de Los Cayos.)"
+msgstr "Descripción del reverso del billete (p. ej., Expedición de Los Cayos.)"
+
+#: banknotes/models.py:58
+msgid "back description"
+msgstr "descripción del reverso"
+
+#: banknotes/models.py:59
+msgid "serial number"
+msgstr "número de serial"
+
+#: banknotes/models.py:60
+msgid "Banknote serial (e.g. A09084450)"
+msgstr "Serial del billete (p. ej.,A09084450 )"
+
+#: banknotes/models.py:61
+msgid "size"
+msgstr "tamaño"
+
+#: banknotes/models.py:61
+msgid "Banknote dimensions (e.g. 157x69mm)"
+msgstr "Dimensiones del billete (p. ej., 157x69mm)"
+
+#: banknotes/models.py:62
+msgid "observations"
+msgstr "observaciones"
+
+#: banknotes/models.py:63
+msgid "Enter your observations about the banknote (e.g. two pinholes)"
+msgstr "Introduzca sus observaciones sobre del billete (p. ej., dos agujeros)"
+
+#: banknotes/models.py:65
+msgid "Select an image for the banknote front"
+msgstr "Seleccione una imágen para el anverso del billete"
+
+#: banknotes/models.py:65
+msgid "front image"
+msgstr "anverso del billete"
+
+#: banknotes/models.py:67
+msgid "Select an image for the banknote back"
+msgstr "Seleccione una imágen para el reverso del billete"
+
+#: banknotes/models.py:67
+msgid "back image"
+msgstr "reverso del billete"
+
+#: banknotes/models.py:68
+msgid "commemorative"
+msgstr "conmemorativo"
+
+#: banknotes/models.py:69
+msgid "polymer"
+msgstr "polímero"
+
+#: banknotes/models.py:70
+msgid "overprint"
+msgstr "sobreimpreso"
+
+#: banknotes/models.py:71
+msgid "specimen"
+msgstr "espécimen"
+
+#: banknotes/models.py:73
+msgid "grading"
+msgstr "graduación"
+
+#: banknotes/models.py:74
+msgid "Grading based on the IBNS Grading Standards"
+msgstr "Graduación basada en los estándares de graduación de la IBNS"
+
+#: banknotes/models.py:78
+msgid "Select the album(s) to add the banknote to"
+msgstr "Seleccione los álbumes en donde se agregará el billete"
+
+#: banknotes/models.py:82
+msgid "banknote"
+msgstr "billete"
+
+#: collector/templates/account/account_inactive.html:5
+#: collector/templates/account/account_inactive.html:8
+msgid "Account Inactive"
+msgstr "Cuenta inactiva"
+
+#: collector/templates/account/account_inactive.html:10
+msgid "This account is inactive."
+msgstr "Esta cuenta está inactiva."
+
+#: collector/templates/account/email.html:7
+msgid "Account"
+msgstr "Cuenta"
+
+#: collector/templates/account/email.html:10
+msgid "E-mail Addresses"
+msgstr "Direcciones de correo electrónico"
+
+#: collector/templates/account/email.html:13
+msgid "The following e-mail addresses are associated with your account:"
+msgstr ""
+"Las siguientes direcciones de correo electrónico están asociada con su "
+"cuenta:"
+
+#: collector/templates/account/email.html:27
+msgid "Verified"
+msgstr "Verificado"
+
+#: collector/templates/account/email.html:29
+msgid "Unverified"
+msgstr "Sin verificar"
+
+#: collector/templates/account/email.html:31
+msgid "Primary"
+msgstr "Principal"
+
+#: collector/templates/account/email.html:37
+msgid "Make Primary"
+msgstr "Asignarlo como principal"
+
+#: collector/templates/account/email.html:38
+msgid "Re-send Verification"
+msgstr "Reenviar verificación"
+
+#: collector/templates/account/email.html:39
+msgid "Remove"
+msgstr "Eliminar"
+
+#: collector/templates/account/email.html:46
+msgid "Warning:"
+msgstr "Precaución:"
+
+#: collector/templates/account/email.html:46
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+"Usted actualmente no tiene una dirección de correo electrónica configurada. "
+"Usted debería añadir una dirección de correo electrónico para poder recibir "
+"notificaciones, reiniciar contraseña, etc."
+
+#: collector/templates/account/email.html:51
+msgid "Add E-mail Address"
+msgstr "Agregar dirección de correo electrónico"
+
+#: collector/templates/account/email.html:56
+msgid "Add E-mail"
+msgstr "Agregar correo electrónico"
+
+#: collector/templates/account/email.html:66
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr ""
+"¿Realmente desea eliminar la dirección de correo electrónico seleccionada?"
+
+#: collector/templates/account/email_confirm.html:6
+#: collector/templates/account/email_confirm.html:10
+msgid "Confirm E-mail Address"
+msgstr "Confirmar dirección de correo electrónico"
+
+#: collector/templates/account/email_confirm.html:16
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+"Por favor confirme que  <a href=\"mailto:%(email)s\">%(email)s</a> es una "
+"dirección de correco electrónico para el usuario %(user_display)s."
+
+#: collector/templates/account/email_confirm.html:20
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: collector/templates/account/email_confirm.html:27
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+"Este enlace de confirmación de correo electrónico expiró o es inválido. Por "
+"favor <a href=\"%(email_url)s\">realice una nueva solicitud de confirmación "
+"de correo electrónico</a>."
+
+#: collector/templates/account/login.html:7
+#: collector/templates/account/login.html:11
+#: collector/templates/account/login.html:56
+#: collector/templates/banknote/index.html:208 collector/templates/base.html:78
+msgid "Sign In"
+msgstr "Iniciar sesión"
+
+#: collector/templates/account/login.html:17
+msgid "Please sign in with one of your existing third party accounts:"
+msgstr ""
+
+#: collector/templates/account/login.html:19
+#, python-format
+msgid ""
+"Or, <a href=\"%(signup_url)s\">sign up</a> for a %(site_name)s account and "
+"sign in below:"
+msgstr ""
+
+#: collector/templates/account/login.html:32
+msgid "or"
+msgstr "o"
+
+#: collector/templates/account/login.html:41
+#, python-format
+msgid ""
+"If you have not created an account yet, then please <a "
+"href=\"%(signup_url)s\">sign up</a> first."
+msgstr ""
+"Si usted no ha creado una cuenta aún, entonces por favor <a "
+"href=\"%(signup_url)s\">regístrese</a> primero."
+
+#: collector/templates/account/login.html:55
+msgid "Forgot Password?"
+msgstr "¿Olvidó la contraseña?"
+
+#: collector/templates/account/logout.html:5
+#: collector/templates/account/logout.html:8
+#: collector/templates/account/logout.html:17 collector/templates/base.html:67
+msgid "Sign Out"
+msgstr "Salir"
+
+#: collector/templates/account/logout.html:10
+msgid "Are you sure you want to sign out?"
+msgstr "¿Está seguro de que quiere salir?"
+
+#: collector/templates/account/password_change.html:6
+#: collector/templates/account/password_change.html:9
+#: collector/templates/account/password_change.html:14
+#: collector/templates/account/password_reset_from_key.html:5
+#: collector/templates/account/password_reset_from_key.html:8
+#: collector/templates/account/password_reset_from_key_done.html:4
+#: collector/templates/account/password_reset_from_key_done.html:7
+msgid "Change Password"
+msgstr "Cambiar contraseña"
+
+#: collector/templates/account/password_reset.html:7
+#: collector/templates/account/password_reset.html:11
+#: collector/templates/account/password_reset_done.html:6
+#: collector/templates/account/password_reset_done.html:9
+msgid "Password Reset"
+msgstr "Reiniciar contraseña"
+
+#: collector/templates/account/password_reset.html:16
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+"¿Olvidó su contraseña? Ingrese su dirección de correo electrónico y le "
+"enviaremos un correo con las indicaciones para reiniciarla."
+
+#: collector/templates/account/password_reset.html:21
+msgid "Reset My Password"
+msgstr "Reiniciar mi contraseña"
+
+#: collector/templates/account/password_reset.html:24
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+"Por favor, contáctenos si presenta problemas para reiniciar su contraseña."
+
+#: collector/templates/account/password_reset_done.html:15
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+"Le hemos enviado un correo electrónico. Por favor, contáctenos si usted no "
+"lo recibe en los próximos minutos."
+
+#: collector/templates/account/password_reset_from_key.html:8
+msgid "Bad Token"
+msgstr "Token dañado"
+
+#: collector/templates/account/password_reset_from_key.html:12
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+
+#: collector/templates/account/password_reset_from_key.html:18
+msgid "change password"
+msgstr "cambiar contraseña"
+
+#: collector/templates/account/password_reset_from_key.html:21
+#: collector/templates/account/password_reset_from_key_done.html:8
+msgid "Your password is now changed."
+msgstr "Su contraseña ha sido cambiada."
+
+#: collector/templates/account/password_set.html:6
+#: collector/templates/account/password_set.html:9
+#: collector/templates/account/password_set.html:14
+msgid "Set Password"
+msgstr "Establecer contraseña"
+
+#: collector/templates/account/signup.html:6
+msgid "Signup"
+msgstr "Registrarse"
+
+#: collector/templates/account/signup.html:9
+#: collector/templates/account/signup.html:19
+#: collector/templates/banknote/index.html:204 collector/templates/base.html:73
+msgid "Sign Up"
+msgstr "Registrarse"
+
+#: collector/templates/account/signup.html:11
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+"¿Ya posee una cuenta? Entonces por favor <a href=\"%(login_url)s\">ingrese</"
+"a>."
+
+#: collector/templates/account/signup_closed.html:5
+#: collector/templates/account/signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr "Registro cerrado"
+
+#: collector/templates/account/signup_closed.html:10
+msgid "We are sorry, but the sign up is currently closed."
+msgstr "Lo sentimos, el registro se encuentra actualmente cerrado."
+
+#: collector/templates/account/verification_sent.html:5
+#: collector/templates/account/verification_sent.html:8
+#: collector/templates/account/verified_email_required.html:5
+#: collector/templates/account/verified_email_required.html:8
+msgid "Verify Your E-mail Address"
+msgstr "Verifique su dirección de correo electrónico"
+
+#: collector/templates/account/verification_sent.html:10
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+"Le hemos enviado un correo para su verificación. Siga el enlace provisto "
+"para finalizar el proceso de registro. Por favor, contáctenos si usted no "
+"recibe el correo en los próximos minutos."
+
+#: collector/templates/account/verified_email_required.html:12
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your e-mail address. "
+msgstr ""
+
+#: collector/templates/account/verified_email_required.html:16
+msgid ""
+"We have sent an e-mail to you for\n"
+"verification. Please click on the link inside this e-mail. Please\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+"Le hemos enviado un correo para la verificación.\n"
+"Por favor siga el enlace que se encuentra dentro de ese correo. Por favor\n"
+"contáctenos si usted no lo recibe en los próximos minutos."
+
+#: collector/templates/account/verified_email_required.html:20
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+"<strong>Nota:</strong> usted todavía puede <a href=\"%(email_url)s\">cambiar "
+"su dirección de correo electrónico</a>."
+
+#: collector/templates/banknote/album.html:8
+#: collector/templates/banknote/album_all_banknotes.html:8
+#: collector/templates/banknote/album_edit.html:10
+#: collector/templates/banknote/album_index.html:8
+#: collector/templates/banknote/dashboard.html:9
+#: collector/templates/banknote/index.html:224 collector/templates/base.html:52
+msgid "Home"
+msgstr "Inicio"
+
+#: collector/templates/banknote/album.html:9
+#: collector/templates/banknote/album_all_banknotes.html:9
+#: collector/templates/banknote/album_edit.html:11
+#: collector/templates/banknote/album_index.html:9
+#: collector/templates/banknote/dashboard.html:10
+#: collector/templates/banknote/index.html:61 collector/templates/base.html:59
+msgid "Dashboard"
+msgstr "Tablero"
+
+#: collector/templates/banknote/album.html:10
+#: collector/templates/banknote/album_all_banknotes.html:10
+#: collector/templates/banknote/album_edit.html:12
+#: collector/templates/banknote/album_index.html:10
+#: collector/templates/banknote/index.html:81
+msgid "Index"
+msgstr "Índice"
+
+#: collector/templates/banknote/album.html:22
+#: collector/templates/banknote/album_all_banknotes.html:19
+#: collector/templates/banknote/album_edit.html:24
+#: collector/templates/banknote/album_index.html:17
+#: collector/templates/banknote/index.html:114
+msgid "Album"
+msgstr "Álbum"
+
+#: collector/templates/banknote/album.html:27
+#: collector/templates/banknote/banknote_detail.html:16
+msgid "Edit"
+msgstr "Editar"
+
+#: collector/templates/banknote/album_all_banknotes.html:11
+#: collector/templates/banknote/album_all_banknotes.html:20
+#: collector/templates/banknote/album_index.html:31
+#: collector/templates/banknote/index.html:83
+msgid "All banknotes"
+msgstr "Todos los billetes"
+
+#: collector/templates/banknote/album_edit.html:27
+msgid "New album"
+msgstr "Nuevo álbum"
+
+#: collector/templates/banknote/album_edit.html:33
+#: collector/templates/banknote/album_edit.html:54
+#: collector/templates/banknote/banknote_edit.html:22
+#: collector/templates/banknote/banknote_edit.html:106
+#: collector/templates/banknote/index.html:263
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: collector/templates/banknote/album_edit.html:42
+#: collector/templates/banknote/banknote_detail.html:21
+#: collector/templates/banknote/banknote_edit.html:33
+msgid "Details"
+msgstr "Detalles"
+
+#: collector/templates/banknote/album_edit.html:55
+#: collector/templates/banknote/banknote_edit.html:107
+msgid "Save"
+msgstr "Guardar"
+
+#: collector/templates/banknote/album_index.html:18
+#, python-format
+msgid " %(user_username)s's albums "
+msgstr "Álbumes de %(user_username)s"
+
+#: collector/templates/banknote/banknote_detail.html:25
+msgid "Issued date"
+msgstr "Fecha de emisión"
+
+#: collector/templates/banknote/banknote_detail.html:27
+msgid "Commemorative"
+msgstr "Conmemorativo"
+
+#: collector/templates/banknote/banknote_detail.html:28
+msgid "Polymer"
+msgstr "Polímero"
+
+#: collector/templates/banknote/banknote_detail.html:29
+msgid "Overprint"
+msgstr "Sobreimpreso"
+
+#: collector/templates/banknote/banknote_detail.html:30
+msgid "Specimen"
+msgstr "Espécimen"
+
+#: collector/templates/banknote/banknote_detail.html:36
+msgid "Serial number"
+msgstr "Número de serial"
+
+#: collector/templates/banknote/banknote_detail.html:39
+msgid "Description front"
+msgstr "Descripción del anverso"
+
+#: collector/templates/banknote/banknote_detail.html:40
+msgid "Description back"
+msgstr "Descripción del reverso"
+
+#: collector/templates/banknote/banknote_detail.html:43
+msgid "Size"
+msgstr "Tamaño"
+
+#: collector/templates/banknote/banknote_detail.html:47
+msgid "Observations"
+msgstr "Observaciones"
+
+#: collector/templates/banknote/banknote_detail.html:51
+msgid "Grading"
+msgstr "Grado"
+
+#: collector/templates/banknote/banknote_detail.html:59
+#: collector/templates/banknote/banknote_edit.html:75
+msgid "Images"
+msgstr "Imágenes"
+
+#: collector/templates/banknote/banknote_detail.html:63
+#: collector/templates/banknote/banknote_detail.html:76
+msgid "Front"
+msgstr "Anverso"
+
+#: collector/templates/banknote/banknote_detail.html:98
+#: collector/templates/banknote/banknote_detail.html:112
+msgid "Back"
+msgstr "Reverso"
+
+#: collector/templates/banknote/banknote_detail.html:139
+#: collector/templates/banknote/banknote_detail.html:142
+#: collector/templates/banknote/index.html:76
+#: collector/templates/banknote/index.html:80
+msgid "Albums"
+msgstr "Álbumes"
+
+#: collector/templates/banknote/banknote_detail.html:164
+#: collector/templates/banknote/banknote_detail.html:167
+msgid "Previous"
+msgstr "Anterior"
+
+#: collector/templates/banknote/banknote_detail.html:170
+#: collector/templates/banknote/banknote_detail.html:173
+msgid "Next"
+msgstr "Siguiente"
+
+#: collector/templates/banknote/banknote_edit.html:16
+msgid "New banknote"
+msgstr "Nuevo billete"
+
+#: collector/templates/banknote/banknote_edit.html:48
+msgid "Special characteristics"
+msgstr "Características especiales"
+
+#: collector/templates/banknote/country.html:9
+msgid "Banknotes"
+msgstr "Billetes"
+
+#: collector/templates/banknote/dashboard.html:110
+msgid "None available"
+msgstr "Nada disponible"
+
+#: collector/templates/banknote/dashboard.html:125
+msgid "Unknown content"
+msgstr "Contenido desconocido"
+
+#: collector/templates/banknote/index.html:69
+msgid "Collections"
+msgstr "Colecciones"
+
+#: collector/templates/banknote/index.html:94
+msgid "By country"
+msgstr "Por país"
+
+#: collector/templates/banknote/index.html:109
+msgid "Manage"
+msgstr "Gestión"
+
+#: collector/templates/banknote/index.html:113
+msgid "Add"
+msgstr "Añadir"
+
+#: collector/templates/banknote/index.html:115
+msgid "Banknote"
+msgstr "Billete"
+
+#: collector/templates/banknote/index.html:149
+#: collector/templates/banknote/index.html:170
+msgid "Search for..."
+msgstr "Buscar..."
+
+#: collector/templates/banknote/index.html:192
+msgid "Profile"
+msgstr "Perfil"
+
+#: collector/templates/banknote/index.html:197
+#: collector/templates/banknote/index.html:264
+msgid "Logout"
+msgstr "Salir"
+
+#: collector/templates/banknote/index.html:256
+msgid "Ready to Leave?"
+msgstr "¿Está listo para salir?"
+
+#: collector/templates/banknote/index.html:261
+msgid "Select \"Logout\" below if you are ready to end your current session."
+msgstr ""
+"Oprima el botón \"Salir\" si está listo para finalizar la sesión actual."
+
+#: collector/templates/base.html:55
+msgid "About"
+msgstr "Acerca"
+
+#: collector/templates/base.html:63
+msgid "My Profile"
+msgstr "Mi perfil"
+
+#: collector/templates/footer.html:5
+msgid "by"
+msgstr "por"
+
+#: collector/users/admin.py:18
+msgid "Personal info"
+msgstr "Información personal"
+
+#: collector/users/admin.py:20
+msgid "Permissions"
+msgstr "Permisos"
+
+#: collector/users/admin.py:31
+msgid "Important dates"
+msgstr "Fechas importantes"
+
+#: collector/users/apps.py:7
+msgid "Users"
+msgstr "Usuarios"
+
+#: collector/users/forms.py:25 collector/users/tests/test_forms.py:36
+msgid "This username has already been taken."
+msgstr "Este nombre de usuario ya está siendo utilizado."
+
+#: collector/users/models.py:15
+msgid "Name of User"
+msgstr "Nombre del usuario"
+
+#: collector/users/views.py:25
+msgid "Information successfully updated"
+msgstr "La información se ha actualizado exitosamente"

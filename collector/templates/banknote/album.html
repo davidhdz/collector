@@ -1,0 +1,76 @@
+{% extends 'banknote/index.html' %}
+{% load static i18n %}
+
+{% block content %}
+{% block breadcrumbs %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">{% translate 'Home' %}</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'dashboard' request.user.username %}">{% translate 'Dashboard' %}</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'album_all_view' username=request.user.username %}">{% translate 'Index' %}</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'album_detail_view' username=request.user.username pk=album.pk slug=album.name|slugify %}">{{ album.name }}</a></li>
+
+    </ol>
+</nav>
+{% endblock breadcrumbs %}
+
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h1 class="m-0 font-weight-bold">{% translate 'Album' %}</h1>
+                <h2 class="">{{ album }}</h2>
+            </div>
+            <div class="card-body">
+                <div class="d-flex d-md-flex justify-content-md-end">
+                    <a href="{% url 'album_edit' username=request.user.username pk=album.pk slug=album.name|slugify %}" type="button" class="btn btn-outline-secondary btn-sm mb-4">{% translate 'Edit' %}</a>
+                </div>
+
+                {% for item in album.my_album.all %}
+                <div class="col-md-4" align="center">
+                    {% if item.image_front or item.image_back %}
+                    <a href="{% url 'banknote_detail_view' username=request.user.username pk=item.id slug=item.slug|slugify %}"><img style="width: 300px;" class="img-fluid img-thumbnail" alt="{{ item.country }} {{ item.denomination }} {{ item.currency }} {{ item.year }}" src="{{ MEDIA_URL }}{{ item.image_front }}"></a><br>
+                    <a href="{% url 'album_country_view' username=request.user.username url_country=item.country %}"><strong>{{ item.country }}</strong></a> <br> {{ item.denomination }} {{ item.currency }} {{ item.year }} (P-{{ item.pick_number }})<br>
+                    <br>
+                    {% else %}
+                    <a href="{% url 'banknote_detail_view' username=request.user.username pk=item.id slug=item.slug|slugify %}"><img style="width: 300px;" class="img-fluid img-thumbnail" alt="{{ item.country }} {{ item.denomination }} {{ item.currency }} {{ item.year }}" src="{% static 'images/no_image_banknote.png' %}"></a><br>
+                    <a href="{% url 'album_country_view' username=request.user.username url_country=item.country %}"><strong>{{ item.country }}</strong></a> <br> {{ item.denomination }} {{ item.currency }} {{ item.year }} (P-{{ item.pick_number }})<br>
+                    <br>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pagination -->
+{% if obj_banknote.has_other_pages %}
+<div class="row">
+    <div class="col-12 mt-4">
+        <ul class="pagination d-flex justify-content-center">
+            {% if obj_banknote.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ obj_banknote.previous_page_number }}">&laquo;</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link"><span>&laquo;</span></a></li>
+            {% endif %}
+            {% for i in obj_banknote.paginator.page_range %}
+            {% if obj_banknote.number == i %}
+            <li class="page-item active"><a class="page-link"><span>{{ i }} <span class="sr-only">(current)</span></span></a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if obj_banknote.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ obj_banknote.next_page_number }}">&raquo;</a></li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link"><span>&raquo;</span></a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

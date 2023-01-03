@@ -1,0 +1,60 @@
+{% extends 'banknote/index.html' %}
+
+{% block content %}
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {% block ccs %}
+    <style>
+        body {
+            margin: 0;
+        }
+
+        html,
+        body,
+        .container-fluid {
+            height: 100%;
+        }
+
+            {
+            % static "images/bg_index.jpg"as bg_index %
+        }
+
+        .hero-image {
+            background: url({{ bg_index }}) no-repeat center;
+            background-size: cover;
+            height: 500px;
+            position: relative;
+        }
+
+        .hero-text {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+        .footer {
+            margin-top: 0px;
+        }
+    </style>
+    {% endblock %}
+</head>
+
+<body>
+
+    <div class="hero-image container-fluid">
+        <div class="hero-text">
+            <h1 style="font-size:50px">Collector</h1>
+            <h2>A banknotes manager</h2>
+            <h5>Coming soon</h5>
+        </div>
+    </div>
+
+</body>
+{% endblock %}

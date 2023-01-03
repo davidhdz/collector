@@ -1,0 +1,116 @@
+{% extends 'banknote/index.html' %}
+{% load crispy_forms_tags %}
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- Basic Card Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                {% if banknote.id %}
+                <h1 class="m-0 font-weight-bold">{{ banknote.country }}</h1>
+                <h2>{{ banknote.denomination }} {{ banknote.currency }} {{ banknote.year }} (P-{{ banknote.pick_number }})</h2>
+                {% else %}
+                <h1 class="m-0 font-weight-bold">{% translate "New banknote" %}</h1>
+                {% endif %}
+            </div>
+            <div class="card-body">
+
+                <div class="d-flex d-md-flex justify-content-md-end">
+                    <a href="{{request.META.HTTP_REFERER}}" class="btn btn-outline-secondary btn-sm mb-4">{% translate 'Cancel' %}</a>
+                    <!-- <input type="submit" value="Submit" class="btn btn-secondary btn-sm mb-4"> -->
+                </div>
+
+                <form class="form" method="post">
+
+                    {% csrf_token %}
+
+                    {% if form %}
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <strong>{% translate 'Details' %}</strong>
+                        </div>
+                        <div class="card-body">
+                            {{ form.country|as_crispy_field }}
+                            {{ form.denomination|as_crispy_field }}
+                            {{ form.currency|as_crispy_field }}
+                            {{ form.pick_number|as_crispy_field }}
+                            {{ form.issued_date|as_crispy_field }}
+                            {{ form.year|as_crispy_field }}
+                            {{ form.serial_number|as_crispy_field }}
+                            {{ form.description_front|as_crispy_field }}
+                            {{ form.description_back|as_crispy_field }}
+                            {{ form.size|as_crispy_field }}
+                            {{ form.observations |as_crispy_field}}
+                            {{ form.grading|as_crispy_field }}
+                            <label>{% translate "Special characteristics" %}</label><br>
+                            <div class="form-check form-check-inline">
+                                {{ form.commemorative|as_crispy_field }}
+                            </div>
+                            <div class="form-check form-check-inline">
+                                {{ form.polymer|as_crispy_field }}
+                            </div>
+                            <div class="form-check form-check-inline">
+                                {{ form.overprint|as_crispy_field }}
+                            </div>
+                            <div class="form-check form-check-inline">
+                                {{ form.specimen|as_crispy_field }}
+                            </div>
+                            <div class="form-check form-check-inline">
+                                {{ form.notgeld|as_crispy_field }}
+                            </div>
+                            <br>
+                            {% if obj_album|length > 0 %}
+                            <div class="form-check form-check-inline">
+                                {{ form.album|as_crispy_field }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <strong>{% translate 'Images' %}</strong>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="col-6">
+                                    {{ form.image_front.label_tag }}<br>
+                                    {{ form.image_front }}
+                                </div>
+                                <div class="col-6 pt-4">
+                                    <figure>
+                                        <img class="img-fluid mx-auto d-block" alt="" src="{{ MEDIA_URL }}{{ banknote.image_front }}" width="200px">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-4">
+                                <div class="col-6">
+                                    {{ form.image_back.label_tag }}<br>
+                                    {{ form.image_back }}
+                                </div>
+                                <div class="col-6 pt-4">
+                                    <figure>
+                                        <img class="img-fluid mx-auto d-block" alt="" src="{{ MEDIA_URL }}{{ banknote.image_back }}" width="200px">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%if form.non_field_errors%}
+                    <div class="col-md-6 p-2 text-danger">{{form.non_field_errors}}</div>
+                    {% endif %}
+                    <div class="d-flex d-md-flex justify-content-md-end">
+                        <a href="{{request.META.HTTP_REFERER}}" class="btn btn-outline-secondary mr-2">{% translate 'Cancel' %}</a>
+                        <input type="submit" value="{% translate 'Save' %}">
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
