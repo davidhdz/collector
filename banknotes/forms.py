@@ -118,4 +118,6 @@ class BanknoteForm(forms.ModelForm):
             "specimen": forms.CheckboxInput,
             "notgeld": forms.CheckboxInput,
             "album": forms.CheckboxSelectMultiple(),
+            "image_front": forms.ClearableFileInput(),
+            "image_back": forms.ClearableFileInput(),
         }

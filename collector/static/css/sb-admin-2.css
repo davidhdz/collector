@@ -13313,21 +13313,25 @@ input[type="checkbox"] {
     border: 0.01rem solid #d1d3e2;
 }
 
-input#id_image_front,
-input#id_image_back {
-    width: 100%;
-    color: #6e707e;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #d1d3e2;
-    border-radius: 0.35rem;
+input#id_image_front.form-control,
+input#id_image_back.form-control {
+    display: flex;
+    padding: 0px;
+    height: 100%;
 }
 
 input#id_image_front::file-selector-button,
 input#id_image_back::file-selector-button {
-    color: black;
-    opacity: 0.75;
+    color: #6e707e;
     border: 0;
+    padding: 0.35rem;
+}
+
+#div_id_image_front .input-group-text,
+#div_id_image_back .input-group-text {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: 0;
 }
 
 .container-cover {

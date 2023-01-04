@@ -178,7 +178,9 @@ def edit_banknote(request, username, pk, slug):
     )
 
     if request.method == "POST":
-        form = BanknoteForm(request.POST, user=request.user, instance=banknote)
+        form = BanknoteForm(
+            request.POST, request.FILES, user=request.user, instance=banknote
+        )
         if form.is_valid():
             banknote = form.save(commit=False)
             banknote.owner = request.user

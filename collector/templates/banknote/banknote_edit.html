@@ -23,7 +23,7 @@
                     <!-- <input type="submit" value="Submit" class="btn btn-secondary btn-sm mb-4"> -->
                 </div>
 
-                <form class="form" method="post">
+                <form class="form" method="POST" enctype="multipart/form-data">
 
                     {% csrf_token %}
 
@@ -77,8 +77,7 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="col-6">
-                                    {{ form.image_front.label_tag }}<br>
-                                    {{ form.image_front }}
+                                    {{ form.image_front|as_crispy_field }}
                                 </div>
                                 <div class="col-6 pt-4">
                                     <figure>
@@ -88,8 +87,7 @@
                             </div>
                             <div class="d-flex mt-4">
                                 <div class="col-6">
-                                    {{ form.image_back.label_tag }}<br>
-                                    {{ form.image_back }}
+                                    {{ form.image_back |as_crispy_field}}
                                 </div>
                                 <div class="col-6 pt-4">
                                     <figure>
