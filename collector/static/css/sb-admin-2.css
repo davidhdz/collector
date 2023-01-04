@@ -32,6 +32,7 @@
     --danger: #e74a3b;
     --light: #f8f9fc;
     --dark: #5a5c69;
+    --collector-secondary: #FF9955;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -183,7 +184,7 @@ a {
 }
 
 a:hover {
-    color: #FF9955;
+    color: var(--collector-secondary);
     text-decoration: none;
 }
 
@@ -2930,8 +2931,8 @@ fieldset:disabled a.btn {
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #FF9955;
-    border-color: #FF9955;
+    background-color: var(--collector-secondary);
+    border-color: var(--collector-secondary);
 }
 
 .btn-primary:focus,
@@ -3553,7 +3554,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-link:hover {
-    color: #FF9955;
+    color: var(--collector-secondary);
     text-decoration: underline;
 }
 
@@ -5629,7 +5630,7 @@ input[type="button"].btn-block {
 
 .page-link:hover {
     z-index: 2;
-    color: #FF9955;
+    color: var(--collector-secondary);
     text-decoration: none;
     background-color: #eaecf4;
     border-color: #dddfeb;
@@ -11455,7 +11456,7 @@ button.bg-dark:focus {
 
 a.text-primary:hover,
 a.text-primary:focus {
-    color: #FF9955 !important;
+    color: var(--collector-secondary) !important;
 }
 
 .text-secondary {
@@ -11798,8 +11799,8 @@ a:focus {
 
 .bg-gradient-primary {
     background-color: #2B5278;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #2B5278), to(#FF9955));
-    background-image: linear-gradient(180deg, #2B5278 10%, #FF9955 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #2B5278), to(var(--collector-secondary)));
+    background-image: linear-gradient(180deg, #2B5278 10%, var(--collector-secondary) 100%);
     background-size: cover;
 }
 
@@ -13274,7 +13275,7 @@ body.sidebar-toggled footer.sticky-footer {
 
 .modal .page-link:hover {
     z-index: 2;
-    color: #FF9955;
+    color: var(--collector-secondary);
     text-decoration: none;
     background-color: #eaecf4;
     border-color: #dddfeb;
@@ -13282,11 +13283,12 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .text-collector-primary {
-    color: #00112b;
+    /* color: #00112b; */
+    color: var(--primary);
 }
 
 .text-collector-secundary {
-    color: #FF9955;
+    color: var(--collector-secondary);
 }
 
 .modal-chevron {
@@ -13296,7 +13298,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .modal-chevron:hover {
-    color: #FF9955;
+    color: var(--collector-secondary);
     text-decoration: none;
     cursor: pointer;
     border: 0;
@@ -13343,4 +13345,8 @@ input#id_image_back::file-selector-button {
 .container-cover .img-thumbnail {
     background-color: transparent;
     border: none;
+}
+
+.note-badges:hover{
+    color: var(--primary);
 }

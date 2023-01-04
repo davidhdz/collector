@@ -31,12 +31,12 @@
                     <div class="card-body">
                         <div class="d-sm-flex justify-content-between">
                             <p><strong>{% translate 'Issued date' %}:</strong> {{ object.issued_date }}</p>
-                            <p class="text-collector-secundary">
-                                {% if object.commemorative %}<i class="fas fa-award pl-1 pr-1" title={% translate 'Commemorative' %}></i>{% endif%}
-                                {% if object.polymer %}<i class="fas fa-recycle pl-1 pr-1" title={% translate 'Polymer' %}></i>{% endif%}
-                                {% if object.overprint %}<i class="fas fa-clone pl-1 pr-1" title={% translate 'Overprint' %}></i>{% endif%}
-                                {% if object.specimen %}<i class="fas fa-stamp pl-1 pr-1" title={% translate 'Specimen' %}></i>{% endif%}
-                                {% if object.notgeld %}<i class="fas fa-globe-europe pl-1 pr-1" title='Notgeld'></i>{% endif%}
+                            <p class="text-collector-secundary pr-3">
+                                {% if object.commemorative %}<i class="fas fa-award fa-xl note-badges px-1" title={% translate 'Commemorative' %}></i>{% endif%}
+                                {% if object.polymer %}<i class="fa-solid fa-sheet-plastic fa-xl note-badges px-1" title={% translate 'Polymer' %}></i>{% endif%}
+                                {% if object.overprint %}<i class="fas fa-clone fa-xl note-badges px-1" title={% translate 'Overprint' %}></i>{% endif%}
+                                {% if object.specimen %}<i class="fas fa-stamp fa-xl note-badges px-1" title={% translate 'Specimen' %}></i>{% endif%}
+                                {% if object.notgeld %}<i class="fas fa-globe-europe fa-xl note-badges px-1" title='Notgeld'></i>{% endif%}
                             </p>
                         </div>
 
