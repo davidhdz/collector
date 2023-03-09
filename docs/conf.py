@@ -27,7 +27,7 @@ django.setup()
 # -- Project information -----------------------------------------------------
 
 project = "collector"
-copyright = """2022-2023, David Hernandez Aponte"""
+copyright = """2019-2023, David Hernandez Aponte"""
 author = "David Hernandez Aponte"
 version = "alpha"
 
