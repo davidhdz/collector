@@ -46,6 +46,7 @@ services:
       - ./docs:/docs:z
       - ./config:/app/config:z
       - ./collector:/app/collector:z
+      - ./banknotes:/app/banknotes:z
     ports:
       - "9000:9000"
     command: /start-docs

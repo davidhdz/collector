@@ -6,18 +6,17 @@
 Welcome to collector's documentation!
 ======================================================================
 
+Collector is a system for the management of notaphilic collections.
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Models:
 
-   howto
-   users
+   banknotes
 
+.. Indices and tables
+.. ==================
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`

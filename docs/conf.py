@@ -27,8 +27,9 @@ django.setup()
 # -- Project information -----------------------------------------------------
 
 project = "collector"
-copyright = """2022, David Hernandez Aponte"""
+copyright = """2022-2023, David Hernandez Aponte"""
 author = "David Hernandez Aponte"
+version = "alpha"
 
 
 # -- General configuration ---------------------------------------------------
@@ -54,9 +55,28 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "alabaster"
+html_theme = "sphinx_rtd_theme"
+html_logo = "/app/collector/static/images/imagotipo1.png"
+html_favicon = "/app/collector/static/images/favicons/favicon.ico"
+
+html_theme_options = {
+    "logo_only": True,
+    "display_version": True,
+    "style_external_links": True,
+}
+
+html_context = {
+    "display_github": True,
+    "github_user": "davidhdz",
+    "github_repo": "collector",
+    "github_version": "master/docs/",
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ["_static"]
+
+show_authors = True
+html_last_updated_fmt = "%B %d, %Y"
+html_show_sourcelink = True
