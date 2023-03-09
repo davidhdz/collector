@@ -3,8 +3,6 @@ Banknotes
 
 Models for banknotes collections.
 
-.. autoclass:: banknotes.models.Album
+.. automodule:: banknotes.models
    :members:
-
-.. autoclass:: banknotes.models.Banknote
-   :members:
+   :show-inheritance:
